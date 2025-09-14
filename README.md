@@ -25,7 +25,7 @@ pip install -U pincrawl
 python -m playwright install chromium
 ```
 
-If developing locally from this repo:
+If developing locally from this repo (pip):
 
 ```
 pip install -U -e .
@@ -36,6 +36,34 @@ For dimension filtering, install Pillow (optional):
 
 ```
 pip install 'pincrawl[images]'
+```
+
+Using uv
+--------
+
+uv can manage the virtualenv and run commands without activating it. From the repo root:
+
+```
+# Create venv (uses .python-version = 3.10)
+uv venv
+
+# Install the project in editable mode
+uv pip install -e .
+
+# Optional: add Pillow for dimension checks
+uv pip install '.[images]'
+
+# Install the Chromium browser used by Playwright
+uv run python -m playwright install chromium
+
+# Run the CLI
+uv run pincrawl --query "sunset photography" --max-images 100 --out images/sunsets
+```
+
+If you don’t want to install the console script, you can run directly:
+
+```
+uv run python main.py --query "sunset photography" --max-images 100 --out images/sunsets
 ```
 
 Usage
