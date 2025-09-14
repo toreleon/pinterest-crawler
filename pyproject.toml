@@ -1,0 +1,19 @@
+[project]
+name = "pincrawl"
+version = "0.1.0"
+description = "Pinterest image crawler CLI (search or any page)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright>=1.46.0",
+    "httpx>=0.25",
+]
+license = { file = "LICENSE" }
+
+[project.optional-dependencies]
+images = [
+    "Pillow>=9.0",
+]
+
+[project.scripts]
+pincrawl = "main:main"
